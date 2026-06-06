@@ -14,6 +14,8 @@ const CONFIG = {
     "Other"
   ],
   incomeCategories: [
+    "B2B Deals",
+    "Ticket Income",
     "Ticket Sales",
     "Sponsorship",
     "Vendor Payment",
@@ -25,7 +27,15 @@ const CONFIG = {
   ],
   categories: [],
   transactionKinds: ["Expense", "Income"],
-  types: ["Logical", "Virtual", "Physical"],
+  paymentMethods: [
+    "Credit Card",
+    "Debit Card",
+    "Bank Transfer",
+    "Cash",
+    "Payment Gateway",
+    "Company Account"
+  ],
+  types: [],
   people: ["Pasindu", "Pradeep", "Company Shared"],
   storageDir: "data/transactions",
   manifestFile: "manifest.json",
@@ -34,3 +44,4 @@ const CONFIG = {
 };
 
 CONFIG.categories = [...new Set([...CONFIG.expenseCategories, ...CONFIG.incomeCategories])];
+CONFIG.types = CONFIG.paymentMethods;

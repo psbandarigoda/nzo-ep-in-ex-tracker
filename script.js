@@ -327,11 +327,11 @@ function initSelects() {
   fillSelect("kindSelect", CONFIG.transactionKinds, "Select record type");
   $("kindSelect").value = "Expense";
   updateCategoryOptions();
-  fillSelect("typeSelect", CONFIG.types, "Select type");
+  fillSelect("typeSelect", CONFIG.paymentMethods, "Select payment method");
   fillSelect("personSelect", CONFIG.people, "Select person");
   fillSelect("filterKind", CONFIG.transactionKinds, "All record types");
   fillSelect("filterCategory", CONFIG.categories, "All categories");
-  fillSelect("filterType", CONFIG.types, "All types");
+  fillSelect("filterType", CONFIG.paymentMethods, "All payment methods");
   fillSelect("filterPerson", CONFIG.people, "All people");
 }
 
