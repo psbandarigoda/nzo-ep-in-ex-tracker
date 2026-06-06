@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nZO x Liyanawicky Balance Sheet</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <section id="loginPage" class="login-page">
+    <form id="appLoginForm" class="login-panel">
+      <p class="tag">Entertain Passport</p>
+      <h1>Ledger Login</h1>
+      <label>Username <input id="appUsername" autocomplete="username" placeholder="pasindu or wicky" /></label>
+      <label>Password <input id="appPassword" autocomplete="current-password" type="password" placeholder="Password" /></label>
+      <button type="submit">Login</button>
+      <p id="appLoginStatus" class="status"></p>
+    </form>
+  </section>
+
+  <main id="appShell" class="container hidden">
+    <nav class="tabs" aria-label="Expense tracker sections">
+      <button class="tab active" type="button" data-tab="summaryTab">Summary Dashboard</button>
+      <button class="tab" type="button" data-tab="addTab">Add Transaction</button>
+      <button class="tab" type="button" data-tab="viewTab">View Records</button>
+      <button class="tab" type="button" data-tab="reportTab">Report</button>
+      <button class="tab" type="button" data-tab="settingsTab">Settings</button>
+      <button id="logoutBtn" class="tab logout-tab" type="button">Logout</button>
+    </nav>
+
+    <section class="hero tab-panel active" id="summaryTab">
+      <p class="tag">Transparent Collaboration Ledger</p>
+      <h1>Platform Balance Sheet</h1>
+      <p>
+        Collaboration between <strong>Pasindu Bandarigoda</strong>, Owner/Director of
+        <strong>nZO Innovations Pvt Ltd</strong> and <strong>Pradeep Nawarathna</strong>,
+        Director/Owner of <strong>Liyanawicky Pvt Ltd</strong>.
+      </p>
+      <p class="split">Share split: <strong>50% : 50%</strong></p>
+
+      <div class="cards dashboard-cards">
+        <div class="card"><span>Total Revenue</span><strong id="totalIncome">LKR 0</strong></div>
+        <div class="card"><span>Total Expenses</span><strong id="totalExpenses">LKR 0</strong></div>
+        <div class="card"><span>Net Balance</span><strong id="netBalance">LKR 0</strong></div>
+        <div class="card"><span>Partner Balance</span><strong id="balanceNote">Balanced</strong></div>
+      </div>
+      <div class="cards dashboard-cards secondary-cards">
+        <div class="card"><span>Pasindu Paid</span><strong id="pasinduPaid">LKR 0</strong></div>
+        <div class="card"><span>Pradeep Paid</span><strong id="pradeepPaid">LKR 0</strong></div>
+        <div class="card"><span>Income Records</span><strong id="incomeCount">0</strong></div>
+        <div class="card"><span>Expense Records</span><strong id="expenseCount">0</strong></div>
+      </div>
+    </section>
+
+    <section class="panel tab-panel" id="addTab">
+      <h2 id="formTitle">Add Transaction</h2>
+      <form id="expenseForm" class="form">
+        <input type="hidden" name="id" />
+        <label>Record Type
+          <select required name="kind" id="kindSelect"></select>
+        </label>
+        <label>Date <input required name="date" type="date" /></label>
+        <label>Category
+          <select required name="category" id="categorySelect"></select>
+        </label>
+        <label>Expense Type
+          <select required name="type" id="typeSelect"></select>
+        </label>
+        <label>Paid / Received By
+          <select required name="paidBy" id="personSelect"></select>
+        </label>
+        <label>Amount LKR <input required name="amount" type="number" min="0" step="0.01" /></label>
+        <label>Description <input required name="description" placeholder="Description" /></label>
+        <label>Proof Link <input name="proof" placeholder="Receipt / invoice link" /></label>
+        <div class="button-row">
+          <button id="submitExpenseBtn" type="submit">Submit Transaction</button>
+          <button type="button" id="resetForm" class="secondary">Clear</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="tab-panel" id="viewTab">
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Search & Filter</h2>
+          <button id="clearFilters" class="secondary small">Clear Filters</button>
+        </div>
+        <div class="filters">
+          <input id="searchText" type="search" placeholder="Search description/category/person..." />
+          <select id="filterKind"></select>
+          <input id="filterDate" type="date" title="Single date" />
+          <input id="fromDate" type="date" title="From date" />
+          <input id="toDate" type="date" title="To date" />
+          <select id="filterCategory"></select>
+          <select id="filterType"></select>
+          <select id="filterPerson"></select>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Transaction Records</h2>
+          <span id="recordCount" class="badge">0 records</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Record Type</th>
+                <th>Category</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Paid / Received By</th>
+                <th>Amount</th>
+                <th>Proof</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="expenseTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel tab-panel" id="reportTab">
+      <div class="panel-head">
+        <h2>Monthly Report</h2>
+        <input id="reportMonth" type="month" />
+      </div>
+      <div class="cards report-cards">
+        <div class="card"><span>Monthly Revenue</span><strong id="monthlyIncome">LKR 0</strong></div>
+        <div class="card"><span>Monthly Expenses</span><strong id="monthlyTotal">LKR 0</strong></div>
+        <div class="card"><span>Monthly Net</span><strong id="monthlyNet">LKR 0</strong></div>
+        <div class="card"><span>Pasindu</span><strong id="monthlyPasindu">LKR 0</strong></div>
+        <div class="card"><span>Pradeep</span><strong id="monthlyPradeep">LKR 0</strong></div>
+        <div class="card"><span>Monthly Balance</span><strong id="monthlyBalance">Balanced</strong></div>
+      </div>
+      <div id="categoryReport"></div>
+    </section>
+
+    <section class="panel tab-panel" id="settingsTab">
+      <div id="settingsLogin">
+        <h2>Settings Login</h2>
+        <p class="note">Repo database settings are protected.</p>
+        <form id="settingsLoginForm" class="settings-login">
+          <input id="settingsUser" autocomplete="username" placeholder="Username" />
+          <input id="settingsPass" autocomplete="current-password" type="password" placeholder="Password" />
+          <button type="submit">Unlock Settings</button>
+        </form>
+        <p id="settingsAuthStatus" class="status"></p>
+      </div>
+
+      <div id="settingsContent" class="hidden">
+        <div class="panel-head">
+          <h2>GitHub Repo Database Settings</h2>
+          <button id="lockSettings" type="button" class="secondary small">Lock</button>
+        </div>
+        <p class="note">
+          Transactions are saved by month inside <code>data/transactions/</code>, with
+          <code>manifest.json</code> listing available files.
+          Use a fine-grained GitHub token with Contents Read/Write access. Do not commit the token.
+        </p>
+        <div class="settings-grid">
+          <input id="repoOwner" placeholder="GitHub owner e.g. bgpsandaruwan" />
+          <input id="repoName" placeholder="Repository name" />
+          <input id="branchName" placeholder="Branch e.g. main" value="main" />
+          <input id="githubToken" type="password" placeholder="GitHub token - kept only in this browser" />
+          <button id="saveSettings">Save Settings</button>
+          <button id="syncBtn" class="secondary">Sync From Repo</button>
+        </div>
+        <p id="syncStatus" class="status"></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

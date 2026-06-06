@@ -1,0 +1,32 @@
+[
+  {
+    "id": "EXP-001",
+    "date": "2026-06-05",
+    "category": "Domain",
+    "type": "Virtual",
+    "paidBy": "Pasindu",
+    "amount": 12000,
+    "description": "Domain registration for platform",
+    "proof": ""
+  },
+  {
+    "id": "EXP-002",
+    "date": "2026-06-06",
+    "category": "NFC Reader",
+    "type": "Physical",
+    "paidBy": "Pradeep",
+    "amount": 18500,
+    "description": "NFC card reader for gate ticket validation",
+    "proof": ""
+  },
+  {
+    "id": "EXP-003",
+    "date": "2026-06-06",
+    "category": "Travel",
+    "type": "Physical",
+    "paidBy": "Pasindu",
+    "amount": 3500,
+    "description": "Travel cost for business meeting",
+    "proof": ""
+  }
+]
