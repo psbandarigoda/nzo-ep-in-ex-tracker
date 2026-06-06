@@ -336,8 +336,7 @@ function initSelects() {
 }
 
 function updateCategoryOptions(selectedValue = "") {
-  const kind = $("kindSelect").value || "Expense";
-  const categories = kind === "Income" ? CONFIG.incomeCategories : CONFIG.expenseCategories;
+  const categories = CONFIG.categories;
   fillSelect("categorySelect", categories, "Select category");
   if (selectedValue && categories.includes(selectedValue)) {
     $("categorySelect").value = selectedValue;
