@@ -12,17 +12,6 @@
   },
   {
     "kind": "Expense",
-    "id": "EXP-002",
-    "date": "2026-06-06",
-    "category": "NFC Reader",
-    "type": "Physical",
-    "paidBy": "Pradeep",
-    "amount": 18500,
-    "description": "NFC card reader for gate ticket validation",
-    "proof": ""
-  },
-  {
-    "kind": "Expense",
     "id": "EXP-003",
     "date": "2026-06-06",
     "category": "Travel",
