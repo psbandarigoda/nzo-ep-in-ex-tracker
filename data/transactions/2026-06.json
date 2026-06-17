@@ -1,10 +1,10 @@
 [
   {
-    "kind": "Expense",
     "id": "EXP-001",
+    "kind": "Expense",
     "date": "2026-06-05",
     "category": "Domain",
-    "type": "Virtual",
+    "type": "Debit Card",
     "paidBy": "Pasindu",
     "amount": 12000,
     "description": "Domain registration for platform",
