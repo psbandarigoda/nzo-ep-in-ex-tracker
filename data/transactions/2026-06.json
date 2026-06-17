@@ -2,7 +2,7 @@
   {
     "id": "EXP-001",
     "kind": "Expense",
-    "date": "2026-06-05",
+    "date": "2026-06-17",
     "category": "Domain",
     "type": "Debit Card",
     "paidBy": "Pasindu",
