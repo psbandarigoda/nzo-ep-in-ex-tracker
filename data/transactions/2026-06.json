@@ -9,16 +9,5 @@
     "amount": 6500,
     "description": "Buy a Domain",
     "proof": ""
-  },
-  {
-    "kind": "Expense",
-    "id": "EXP-003",
-    "date": "2026-06-06",
-    "category": "Travel",
-    "type": "Physical",
-    "paidBy": "Pasindu",
-    "amount": 3500,
-    "description": "Travel cost for business meeting",
-    "proof": ""
   }
 ]
