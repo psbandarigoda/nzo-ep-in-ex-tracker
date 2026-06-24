@@ -20,5 +20,16 @@
     "amount": 1530,
     "description": "Testing Reader - 01",
     "proof": ""
+  },
+  {
+    "id": "EXP-1782314060558",
+    "kind": "Expense",
+    "date": "2026-06-20",
+    "category": "NFC Cards",
+    "type": "Cash",
+    "paidBy": "Pasindu",
+    "amount": 250,
+    "description": "NFC Testing - 5 Cards",
+    "proof": ""
   }
 ]
